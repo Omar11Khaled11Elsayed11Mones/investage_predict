@@ -47,7 +47,7 @@ restore_best_weights=True,
 
 )
 
-omar_model = keras.Sequential([
+free_model = keras.Sequential([
 
 layers.Dense(units= 64 , activation= 'relu' , input_shape=input_shape),
 layers.Dense(units= 32 , activation= 'relu'),
@@ -55,14 +55,14 @@ layers.Dense(units= 1 ),
 
 ])
 
-omar_model.compile(
+free_model.compile(
 
 optimizer='adam',
 loss='mae',
 
 )
 
-history = omar_model.fit(
+history = free_model.fit(
  X_train, y_train,
 
 
@@ -86,7 +86,7 @@ print("Minimum Validation Loss: {:0.4f}".format(history_df['val_loss'].min()));
 
 
 
-predicted_price = omar_model.predict(X_valid)
+predicted_price = free_model.predict(X_valid)
 
 print("closed price")
 print("___________________________________________________________")
